@@ -20,5 +20,5 @@ jobs:
         with:
           token: ${{ secrets.ZEET_TOKEN }}
 
-      - name: Deploy project
-        run: zeet deploy zeet-demo/zeet-demo-node-sample
+#      - name: Deploy project
+#        run: zeet deploy zeet-demo/zeet-demo-node-github-action-cli
