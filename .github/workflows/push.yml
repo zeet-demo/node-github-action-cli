@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Zeet CLI
+        uses: zeet-dev/action-zeet@main
+        with:
+          token: ${{ secrets.ZEET_TOKEN }}
+
+      - name: Deploy project
+        run: zeet deploy zeet-demo/zeet-demo-node-sample
