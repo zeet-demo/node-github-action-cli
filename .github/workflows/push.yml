@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ v2 ]
+    branches: [ new-action ]
   pull_request:
-    branches: [ v2 ]
+    branches: [ new-action ]
 
   workflow_dispatch:
 
