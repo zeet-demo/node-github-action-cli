@@ -20,3 +20,4 @@ jobs:
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node-github-action-cli
+          wait: false
