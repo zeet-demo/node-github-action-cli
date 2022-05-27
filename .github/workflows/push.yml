@@ -11,9 +11,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    outputs:
-      link: ${{ steps.deploy.outputs.link }}
-
     steps:
       - uses: actions/checkout@v3
 
@@ -24,7 +21,7 @@ jobs:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node-github-action-cli
 
-      - run: "echo Link: ${{ outputs.link }}"
+      - run: "echo Link: ${{ steps.deploy.outputs.link }}"
 
 #      - name: Run ls
 #        uses: zeet-co/zeet-run-action@v2
