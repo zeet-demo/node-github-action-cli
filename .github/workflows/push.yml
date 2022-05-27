@@ -20,3 +20,4 @@ jobs:
         uses: zeet-co/zeet-deploy-action@v2
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
+          project: zeet-demo/zeet-demo-node-github-action-cli
