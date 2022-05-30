@@ -9,6 +9,34 @@ on:
   workflow_dispatch:
 
 jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Image
+        id: build-image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: node-github-action-cli
+          tags: latest ${{ github.sha }}
+          containerfiles: |
+            ./Dockerfile
+
+      - name: Push To GHCR
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: node-github-action-cli
+          tags: ${{ steps.build_image.outputs.tags }}
+          registry: ghcr.io/${{ github.repository_owner }}
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+          extra-args: |
+            --disable-content-trust
+
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -20,12 +48,7 @@ jobs:
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node-github-action-cli
+          image: ${{ steps.build_image.outputs.tags }}
 
-      - run: "echo Link: ${{ steps.deploy.outputs.link }}"
-
-#      - name: Run ls
-#        uses: zeet-co/zeet-run-action@v2
-#        with:
-#          deploy_key: ${{ secrets.ZEET_TOKEN }}
-#          project: zeet-demo/zeet-demo-node-github-action-cli
-#          command:
+      - name: Echo dashboard link
+        run: "echo Dashboard: ${{ steps.deploy.outputs.link }}"
