@@ -50,8 +50,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Echo image name
-        run: echo ${{ steps.build_image.outputs.image }} ${{ steps.build_image.outputs.tags }}
+      - name: Echo outputs
+        run: |
+          echo "${{ toJSON(steps.push.outputs) }}"
 
       - name: Deploy project
         id: deploy
