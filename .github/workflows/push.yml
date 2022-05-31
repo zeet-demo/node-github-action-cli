@@ -59,7 +59,7 @@ jobs:
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node
-          image: ${{ env.IMAGE_NAME }}
+          image: ghcr.io/${{ env.IMAGE_NAME }}:latest
 
       - name: Echo dashboard link
         run: "echo Dashboard: ${{ steps.deploy.outputs.link }}"
