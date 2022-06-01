@@ -11,29 +11,29 @@ env:
   REGISTRY_PASSWORD: ${{ github.token }}
 
 jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Zeet Deploy
-#         uses: zeet-co/zeet-deploy-action@v2
-#         with:
-#           deploy_key: ${{ secrets.ZEET_DEPLOY_KEY }}
-#           project: zeet-demo/zeet-demo-node-actions
-#           image: zeetco/node-github-actions:latest
-#           branch: ${{ github.ref_name }}
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zeet Deploy
+        uses: zeet-co/zeet-deploy-action@v2
+        with:
+          deploy_key: ${{ secrets.ZEET_TOKEN }}
+          project: zeet-demo/zeet-demo-node-actions
+          image: zeetco/node-github-actions:latest
+          branch: ${{ github.ref_name }}
           
-#       - name: Echo dashboard link
-#         run: "echo Dashboard: ${{ steps.deploy.outputs.link }}"
+      - name: Echo dashboard link
+        run: "echo Dashboard: ${{ steps.deploy.outputs.link }}"
 
   run-command:
     runs-on: ubuntu-latest
-#     needs: deploy
+    needs: deploy
     steps:
       - name: Run command
         id: run
         uses: zeet-co/zeet-run-action@v2
         with:
-          deploy_key: ${{ secrets.ZEET_DEPLOY_KEY }}
+          deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node
 
       - name: Echo dashboard link
