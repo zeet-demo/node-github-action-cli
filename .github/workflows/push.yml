@@ -45,10 +45,6 @@ jobs:
           extra-args: |
             --disable-content-trust
 
-      - name: Echo outputs
-        run: |
-          echo "${{ toJSON(steps.push.outputs) }}"
-
   deploy:
     runs-on: ubuntu-latest
     needs: publish-gpr
@@ -59,7 +55,7 @@ jobs:
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node
-          image: ghcr.io/zeet-demo/${{ env.IMAGE_NAME }}:latest
+          image: ghcr.io/zeet-demo/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Echo dashboard link
         run: "echo Dashboard: ${{ steps.deploy.outputs.link }}"
