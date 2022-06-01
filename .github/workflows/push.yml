@@ -14,14 +14,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy project
-        id: deploy
+      - name: Zeet Deploy
         uses: zeet-co/zeet-deploy-action@v2
         with:
-          deploy_key: ${{ secrets.ZEET_TOKEN }}
-          project: zeet-demo/zeet-demo-node
-          branch: dev
-
+          deploy_key: ${{ secrets.ZEET_DEPLOY_KEY }}
+          project: zeet-demo/zeet-demo-node-actions
+          image: zeetco/node-github-actions:latest
+          branch: ${{ github.ref_name }}
+          
       - name: Echo dashboard link
         run: "echo Dashboard: ${{ steps.deploy.outputs.link }}"
 
