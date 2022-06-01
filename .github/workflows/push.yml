@@ -1,9 +1,6 @@
 name: CI
 
-on:
-  push:
-    tags:
-      - '*'
+on: push
 
   workflow_dispatch:
 
@@ -61,7 +58,6 @@ jobs:
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node
-          image: ghcr.io/zeet-demo/${{ env.IMAGE_NAME }}:${{ steps.get_tag.outputs.TAG }}
 
       - name: Echo dashboard link
         run: "echo Dashboard: ${{ steps.deploy.outputs.link }}"
@@ -76,7 +72,6 @@ jobs:
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node
-          command: whoami
 
       - name: Echo dashboard link
         run: echo ${{ steps.run.outputs.link }}
