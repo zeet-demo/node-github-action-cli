@@ -2,9 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ new-action ]
-  pull_request:
-    branches: [ new-action ]
+    tags:
+      - '*'
 
   workflow_dispatch:
 
