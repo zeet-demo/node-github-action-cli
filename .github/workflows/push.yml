@@ -72,7 +72,7 @@ jobs:
     steps:
       - name: Run command
         id: run
-        uses: zeet-co/zeet-run-action
+        uses: zeet-co/zeet-run-action@v1
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node@v1
