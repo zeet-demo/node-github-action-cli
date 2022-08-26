@@ -50,6 +50,7 @@ jobs:
           project: zeet-dev/zeet-demo-node-actions
           image: ghcr.io/zeet-demo/${{ env.IMAGE_NAME }}:${{ github.sha }}
           wait: false
+          allow_prereleases: true
 
       - name: Echo dashboard link
         run: "echo Dashboard: ${{ steps.deploy.outputs.link }}"
