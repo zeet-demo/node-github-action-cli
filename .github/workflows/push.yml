@@ -47,7 +47,7 @@ jobs:
         uses: zeet-co/zeet-deploy-action@v2
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
-          project: zeet-demo/zeet-demo-node
+          project: zeet-demo/zeet-demo-node-actions
           image: ghcr.io/zeet-demo/${{ env.IMAGE_NAME }}:${{ github.sha }}
           wait: false
 
@@ -63,7 +63,7 @@ jobs:
         uses: zeet-co/zeet-run-action@v1
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
-          project: zeet-demo/zeet-demo-node
+          project: zeet-demo/zeet-demo-node-actions
           command: whoami
 
       - name: Echo dashboard link
