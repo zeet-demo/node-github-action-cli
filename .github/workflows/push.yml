@@ -57,7 +57,7 @@ jobs:
 
       - name: Deploy project
         id: deploy
-        uses: zeet-co/zeet-deploy-action@v1
+        uses: zeet-co/zeet-deploy-action@v2
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
           project: zeet-demo/zeet-demo-node
