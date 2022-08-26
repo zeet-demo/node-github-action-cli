@@ -46,10 +46,11 @@ jobs:
         id: deploy
         uses: zeet-co/zeet-deploy-action@prereleases
         with:
-          deploy_key: ${{ secrets.ZEET_TOKEN }}
-          project: zeet-dev/zeet-demo-node-actions
+          deploy_key: ${{ secrets.ZEET_TOKEN_STAGING }}
+          project: zeet-demo/actions-demo/production/actions-demo
           image: ghcr.io/zeet-demo/${{ env.IMAGE_NAME }}:${{ github.sha }}
           wait: false
+          api_url: https://staging.zeet.co
           allow_prereleases: true
 
       - name: Echo dashboard link
