@@ -50,7 +50,7 @@ jobs:
           project: zeet-demo/actions-demo/production/actions-demo
           image: ghcr.io/zeet-demo/${{ env.IMAGE_NAME }}:${{ github.sha }}
           wait: false
-          api_url: https://anchor.staging.zeetco.com
+          api_url: https://anchor.staging.zeetco.com/graphql
           allow_prereleases: true
 
       - name: Echo dashboard link
