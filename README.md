@@ -7,3 +7,4 @@ run on the deployment (with [Run Action](https://github.com/zeet-co/zeet-run-act
 Note: Zeet automatically redeploys code upon a commit by default. This example uses Manual Deploy instead:
 
 ![Enabling Manual Deploy](./img.png)
+
