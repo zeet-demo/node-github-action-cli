@@ -18,7 +18,7 @@ jobs:
         uses: zeet-co/zeet-deploy-action@v2
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
-          project: zeet-demo/zeet-demo-node-actions
+          project: zeet-dev/zeet-demo-node-actions
           image: zeetco/node-github-actions:latest
           branch: ${{ github.ref_name }}
           
@@ -34,7 +34,7 @@ jobs:
         uses: zeet-co/zeet-run-action@v2
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN }}
-          project: zeet-demo/zeet-demo-node
+          project: zeet-dev/zeet-demo-node
 
       - name: Echo dashboard link
         run: echo ${{ steps.run.outputs.link }}
