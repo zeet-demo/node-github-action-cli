@@ -8,3 +8,4 @@ Note: Zeet automatically redeploys code upon a commit by default. This example u
 
 ![Enabling Manual Deploy](./img.png)
 
+
