@@ -44,7 +44,7 @@ jobs:
     steps:
       - name: Deploy project
         id: deploy
-        uses: zeet-co/zeet-deploy-action@prereleases
+        uses: zeet-co/zeet-deploy-action@v1
         with:
           deploy_key: ${{ secrets.ZEET_TOKEN_STAGING }}
           project: zeet-demo/actions-demo/production/actions-demo
